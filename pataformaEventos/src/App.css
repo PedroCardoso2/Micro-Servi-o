@@ -1,0 +1,19 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.App {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: url("assets/Component.png") no-repeat;
+  background-size: cover;
+  background-position: center;
+
+  box-sizing: border-box;
+  font-family: Helvetica;
+  text-shadow: #000 1px 1px;
+  color: #fff;
+}
