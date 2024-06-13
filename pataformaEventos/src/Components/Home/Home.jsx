@@ -1,4 +1,4 @@
-import * as React from "react";
+
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import {
@@ -14,7 +14,6 @@ import {
   Grid,
   Box,
 } from "@mui/joy";
-import Events from './../Events/Events';
 import { Link } from "react-router-dom";
 
 export default function Home() {
