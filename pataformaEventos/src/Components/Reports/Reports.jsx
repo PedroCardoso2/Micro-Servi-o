@@ -26,8 +26,6 @@ export default function Reports() {
         }
       }
     });
-
-    // Cleanup function to destroy the chart instance
     return () => {
       myChart.destroy();
     };
