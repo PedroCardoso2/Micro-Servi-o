@@ -20,6 +20,7 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Evento {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_event")
@@ -52,6 +53,7 @@ public class Evento {
         this.dataEvento = evento.dataEvento();
         this.organizador_Id = evento.organizador();
         this.status = evento.status();
+        this.localizacao = evento.localizacao();
     }
 
     // Update

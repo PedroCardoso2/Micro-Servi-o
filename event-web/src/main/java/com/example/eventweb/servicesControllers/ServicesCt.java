@@ -31,10 +31,10 @@ public class ServicesCt {
     }
 
     //Remover -> Event
-    public ResponseEntity<DadosRemoverEvento> removerEvento(DadosRemoverEvento dados){
-      if(repository.existsById(dados.id())){
-          repository.deleteById(dados.id());
-          return ResponseEntity.status(HttpStatus.OK).body(new DadosRemoverEvento(dados.id()));
+    public ResponseEntity<DadosRemoverEvento> removerEvento(Long dados){
+      if(repository.existsById(Long.valueOf(dados))){
+          repository.deleteById(Long.valueOf(dados));
+          return ResponseEntity.status(HttpStatus.OK).body(new DadosRemoverEvento(dados));
       }else{
           return ResponseEntity.notFound().build();
       }

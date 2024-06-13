@@ -18,6 +18,7 @@ import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/event")
+@CrossOrigin(origins = "*", maxAge = 3600)
 public class EventoController {
 
     @Autowired
@@ -41,11 +42,12 @@ public class EventoController {
         return ct.listagemEventos(page);
     }
 
-    @DeleteMapping
+    @DeleteMapping("/{index}")
     @Transactional
-    public ResponseEntity<?> remove( @RequestBody @Valid DadosRemoverEvento dados){
-        return ct.removerEvento(dados);
+    public ResponseEntity<?> remove(@PathVariable Long index){
+        return ct.removerEvento(index);
     }
+
 
 
 }

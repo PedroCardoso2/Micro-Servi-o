@@ -20,14 +20,14 @@ const Login = () => {
     const config = {
       headers: {
         'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': 'http://localhost:8082/base' 
+        'Access-Control-Allow-Origin': 'http://localhost:8185' 
       }
     };
   
     try {
-      const response = await axios.post('http://localhost:8082/base/auth/login', data, config);
+      const response = await axios.post('http://localhost:8185/auth/login', data, config);
       console.log('Response:', response.data);
-      navigate("/home");
+      navigate("/");
     } catch (error) {
       console.error('Error:', error);
     }
@@ -41,6 +41,7 @@ const Login = () => {
           <input
             type="text"
             placeholder="Endereço de e-mail *"
+            style={{color: "black"}}
             required
             value={login}
             onChange={(e) => setLogin(e.target.value)}
@@ -51,6 +52,7 @@ const Login = () => {
           <input
             type="password"
             placeholder="Senha *"
+            style={{color: "black"}}
             required
             value={senha}
             onChange={(e) => setSenha(e.target.value)}

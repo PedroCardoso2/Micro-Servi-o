@@ -13,6 +13,7 @@ import Divider from "@mui/joy/Divider";
 import FormLabel from "@mui/joy/FormLabel";
 import FormControl from "@mui/joy/FormControl";
 import { Input, Textarea } from "@mui/joy";
+import axios from 'axios';
 
 export default function AddEvents() {
   const [eventName, setEventName] = useState("");
@@ -21,8 +22,32 @@ export default function AddEvents() {
   const [eventDetails, setEventDetails] = useState("");
   const navigate = useNavigate();
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
+
+
+    const data = {
+        nome_Evento: eventName,
+        descricao: eventDetails,
+        localizacao: eventAddress,
+        status: "PROCESSO",
+        data_evento: eventDate,
+        organizador: 1
+    };
+
+    const config = {
+      headers: {
+        'Content-Type': 'application/json' 
+      }
+    };
+  
+    try {
+      const response = await axios.post('http://localhost:8686/event', data, config);
+      console.log('Response:', response.data);
+      navigate("/events");
+    } catch (error) {
+      console.error('Error:', error);
+    }
     console.log("Dados do evento:", { eventName, eventDate, eventAddress, eventDetails });
 
     /* navigate("/events"); */

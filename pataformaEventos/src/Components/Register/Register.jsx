@@ -29,14 +29,14 @@ const Register = () => {
     const config = {
       headers: {
         'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': 'http://localhost:8082' 
+        'Access-Control-Allow-Origin': 'http://localhost:8185' 
       }
     };
   
     try {
-      const response = await axios.post('http://localhost:8082/base/auth/register', data, config);
+      const response = await axios.post('http://localhost:8185/auth/register', data, config);
       console.log('Response:', response.data);
-      navigate("/home");
+      navigate("/");
     } catch (error) {
       console.error('Error:', error);
     }
